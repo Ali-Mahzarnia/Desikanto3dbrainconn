@@ -1,8 +1,13 @@
 #install.packages("remotes")
 #remotes::install_github("sidchop/brainconn")
 
+install.packages("https://github.com/Ali-Mahzarnia/brainconn2/archive/master.tar.gz", repos = NULL, type="source")
+
+
+
 library(brainconn)
 brainconn(atlas ="schaefer300_n7", conmat=example_unweighted_undirected, view="ortho")
+
 x <- example_unweighted_undirected
 p <- brainconn3D(atlas ="schaefer300_n7", conmat=x, show.legend = F)
 p
@@ -45,7 +50,7 @@ x[1,2]=x[2,1]=1
 rownames(x)=colnames(x)=coordinates[,1]
 
 brainconn(atlas =coordinates, conmat=x, 
-          view="front", node.size = 2, 
+          view="ortho", node.size = 2, 
           node.color = "hotpink", 
           edge.width = 1, edge.color="darkblue", 
           edge.alpha = 0.8, 
